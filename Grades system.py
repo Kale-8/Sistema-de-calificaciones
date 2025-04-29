@@ -34,11 +34,11 @@ userGrade = input(f'Ingrese las calificaciones separada por comas (Ej: "5,6,4.5,
 # Se recorren las calificaciones con un "for" para agregar cada una a la lista "grades"
 for c in userGrade:
     if c == ',':
-        grades.append(float(re.sub(r'\D','',strGrade)))
+        grades.append(float(re.sub(r'[^\d.]','',strGrade)))
         strGrade = ''
     else:
         strGrade += c
-grades.append(float(re.sub(r'\D','',strGrade)))
+grades.append(float(re.sub(r'[^\d.]','',strGrade)))
 average = sum(grades) / len(grades)
 print(f'Tus calificaciones son: {grades}')
 print(f'\nEl promedio de las calificaciones es: {average}\n')
