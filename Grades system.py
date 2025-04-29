@@ -1,9 +1,9 @@
 # Se definen las variables y se le asigna el tipo
 grade:float
 grades:list[float]
-gradeStr:str
+userGrade:str
 average:float
-buffer:str
+strGrade:str
 # Se valida que este en un rango de 0 a 100
 print('Determinar el estado de aprobacion:\n')
 def alert():
@@ -23,15 +23,15 @@ else: print('Reprobado\n')
 # Se calcula el promedio de acuerdo a las calificaciones que se ingresen, tiene un limite de 4 calificaciones
 print('Calcular el promedio:\n')
 grades = []
-buffer = ''
-gradeStr = input(f'Ingrese la calificacion separada por comas (Ex: "5,6,4.5,3"): ')
-for c in gradeStr:
+strGrade = ''
+userGrade = input(f'Ingrese la calificacion separada por comas (Ex: "5,6,4.5,3"): ')
+for c in userGrade:
     if c == ',':
-        grades.append(float(buffer.replace('\D','')))
-        buffer = ''
+        grades.append(float(strGrade.replace('\D','')))
+        strGrade = ''
     else:
-        buffer += c
-grades.append(float(buffer))
+        strGrade += c
+grades.append(float(strGrade))
 average = sum(grades) / 4
 print(f'El promedio de las calificaciones es: {average}\n')
 print(grades)
